@@ -3,22 +3,21 @@ package main
 import (
 	"errors"
 	"fmt"
-	"strings"
-	"unicode"
+	"strconv"
 )
 
-func stringsComLetraMaiuscula(slice []string) (string, error) {
-	if len(slice) == 0 {
-		return "", errors.New("Slice está vazio")
+func somaDigitos(numero int) (int, error) {
+	if numero < 0 {
+		return 0, errors.New("Número negativo não é válido")
 	}
 
-	var result []string
+	strNumero := strconv.Itoa(numero)
+	soma := 0
 
-	for _, str := range slice {
-		if len(str) > 0 && unicode.IsUpper(rune(str[0])) {
-			result = append(result, str)
-		}
+	for _, char := range strNumero {
+		digito, _ := strconv.Atoi(string(char))
+		soma += digito
 	}
 
-	return strings.Join(result, ", "), nil
+	return soma, nil
 }
