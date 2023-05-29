@@ -18,13 +18,3 @@ func mediaAritmetica(nums []int) (float64, error) {
 	average := float64(sum) / float64(len(nums))
 	return average, nil
 }
-
-func main() {
-	numeros := []int{10, 5, 8, 12, 6}
-	media, err := mediaAritmetica(numeros)
-	if err != nil {
-		fmt.Println("Erro:", err)
-	} else {
-		fmt.Println("Média:", media)
-	}
-}
